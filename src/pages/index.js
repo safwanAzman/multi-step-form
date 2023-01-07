@@ -28,7 +28,22 @@ export default function Home() {
               
             </div>
             <div className="col-span-12 px-8 py-5 lg:pr-[7rem] lg:col-span-8">
-              <Step1/>
+              <Step1
+                  nameId=""
+                  nameName=""
+                  nameOnChange=""
+                  nameErrorMessage={null}
+              
+                  emailId=""
+                  emailName=""
+                  emailOnChange=""
+                  emailErrorMessage={null}
+              
+                  phoneId=""
+                  phoneName=""
+                  phoneOnChange=""
+                  phoneErrorMessage={null}
+                />
             </div>
           </div>
         </div>
