@@ -3,6 +3,10 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
+import desktopBgSidebar from '../assets/img/bg-sidebar-desktop.svg'
+import mobileBgSidebar from '../assets/img/bg-sidebar-mobile.svg'
+import Input from "@/components/input"
+
 export default function Home() {
   return (
     <>
@@ -13,10 +17,50 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-      <main class="h-screen bg-white flex items-center justify-center flex-col">
-        <h1 className="text-4xl text-black myFontRegular">
-          Multi Step Form
-        </h1>
+      <div className="block bg-no-repeat bg-cover h-[20rem] lg:hidden" style={{ backgroundImage: `url(${mobileBgSidebar.src})` }}>
+        
+      </div>
+      <main className="flex flex-col items-center justify-start h-screen pt-32 lg:justify-center lg:pt-0 bg-neutral-magnolia ">
+        
+        <div className="absolute mx-4 bg-white rounded-lg shadow-lg top-52 lg:relative lg:top-0 ">
+          <div className="grid grid-cols-12 gap-8 lg:gap-6 md:gap-12">
+            <div className="hidden col-span-12 lg:col-span-4 w-[21rem] bg-no-repeat bg-center h-[38rem] lg:block" style={{ backgroundImage: `url(${desktopBgSidebar.src})` }}>
+              
+            </div>
+            <div className="col-span-12 px-8 py-5 lg:pr-[7rem] lg:col-span-8">
+              <div className="pt-10 pb-8">
+                <h1 className='text-4xl myFontBold text-primary-marineBlue'>Personal info</h1>
+                <h1 className='pt-2 text-base lg:text-lg myFontRegular text-neutral-coolGray'>Please provide your name, email address, and phone number.</h1>
+              </div>
+              <div>
+                  <Input
+                      label="Name"
+                      placeholder="e.g. Safwan Azman"
+                      // id=""
+                      // name=""
+                      // onChange=""
+                      errorMessage={'This field is required'}
+                  />
+                  <Input
+                      label="Email Address"
+                      placeholder="e.g. SafwanAzman@gmail.com"
+                      // id=""
+                      // name=""
+                      // onChange=""
+                      errorMessage={null}
+                  />
+                  <Input
+                      label="Phone Number"
+                      placeholder="e.g. +1 234 567 890"
+                      // id=""
+                      // name=""
+                      // onChange=""
+                      errorMessage={null}
+                  />
+                </div>
+            </div>
+          </div>
+        </div>
       </main>
       </>
     </>
