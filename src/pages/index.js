@@ -31,20 +31,34 @@ export default function Home() {
               <Step1
                   nameId=""
                   nameName=""
-                  nameOnChange=""
+                  // nameOnChange=""
                   nameErrorMessage={null}
               
                   emailId=""
                   emailName=""
-                  emailOnChange=""
+                  // emailOnChange=""
                   emailErrorMessage={null}
               
                   phoneId=""
                   phoneName=""
-                  phoneOnChange=""
+                  // phoneOnChange=""
                   phoneErrorMessage={null}
                 />
+
+
+
+              <div className="flex justify-between mt-16">
+                <button className="px-4 py-2 text-base rounded-md text-neutral-coolGray myFontBold hover:text-primary-purplishBlue">
+                    Go Back
+                </button>
+                <button className="w-32 h-12 px-4 py-2 text-base text-white rounded-md myFontRegular bg-primary-marineBlue hover:bg-primary-purplishBlue">
+                    Next Step
+                </button>
+              </div>
             </div>
+
+
+           
           </div>
         </div>
       </main>
