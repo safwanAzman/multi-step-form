@@ -24,9 +24,9 @@ function input({
             </div>
             <input 
                 className={errorMessage == null ?
-                    'outline-none border-[1.5px] border-black text-gray-900 text-base rounded-lg  focus:border-none block w-full p-[0.9rem] focus:outline-primary-marineBlue '
+                    'outline-none border-[1.5px] border-neutral-coolGray text-gray-900 text-base rounded-lg  focus:border-none block w-full p-3 focus:outline-neutral-coolGray '
                     :
-                    'outline-none border-[1.5px] border-primary-strawberry text-primary-strawberry text-base rounded-lg focus:border-none block w-full p-[0.9rem] focus:outline-primary-strawberry'
+                    'outline-none border-[1.5px] border-primary-strawberry text-primary-strawberry text-base rounded-lg focus:border-none block w-full p-3 focus:outline-primary-strawberry'
                 } 
                 type={type}
                 placeholder={placeholder}
