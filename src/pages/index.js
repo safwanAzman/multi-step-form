@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 import desktopBgSidebar from '../assets/img/bg-sidebar-desktop.svg'
 import mobileBgSidebar from '../assets/img/bg-sidebar-mobile.svg'
 import Step1 from '@/components/step/step1'
+import Tab from '@/components/tab/tab'
 
 export default function Home() {
   return (
@@ -27,46 +28,26 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8 lg:gap-6 md:gap-12">
             <div className="hidden col-span-12 lg:col-span-4 w-[21rem] bg-no-repeat bg-center h-[38rem] lg:block relative" style={{ backgroundImage: `url(${desktopBgSidebar.src})` }}>
               <div className="absolute top-[4rem] left-[4rem]">
-                <div className="flex items-start mb-5 space-x-4">
-                    <div className="flex items-center justify-center mb-2 rounded-full h-9 w-9 text-primary-marineBlue bg-primary-lightBlue myFontMedium">
-                        1
-                    </div>
-                    <div>
-                      <h1 className="text-xs text-neutral-lightGray myFontMedium">STEP 1</h1>
-                      <h1 className="text-sm text-white myFontMedium">YOUR INFO</h1>
-                    </div>
-                </div>
-                <div className="flex items-start mb-5 space-x-4">
-                    <div className="flex items-center justify-center mb-2 text-white border-[1.5px] border-white rounded-full h-9 w-9 bg-trasparent myFontMedium">
-                        2
-                    </div>
-                    <div>
-                      <h1 className="text-xs text-neutral-lightGray myFontMedium">STEP 2</h1>
-                      <h1 className="text-sm text-white myFontMedium">SELECT PLAN</h1>
-                    </div>
-                </div>
-
-                <div className="flex items-start mb-5 space-x-4">
-                    <div className="flex items-center justify-center mb-2 text-white border-[1.5px] border-white rounded-full h-9 w-9 bg-trasparent myFontMedium">
-                        3
-                    </div>
-                    <div>
-                      <h1 className="text-xs text-neutral-lightGray myFontMedium">STEP 3</h1>
-                      <h1 className="text-sm text-white myFontMedium">ADD-ONS</h1>
-                    </div>
-                </div>
-
-                <div className="flex items-start mb-5 space-x-4">
-                    <div className="flex items-center justify-center mb-2 text-white border-[1.5px] border-white rounded-full h-9 w-9 bg-trasparent myFontMedium">
-                        4
-                    </div>
-                    <div>
-                      <h1 className="text-xs text-neutral-lightGray myFontMedium">STEP 4</h1>
-                      <h1 className="text-sm text-white myFontMedium">SUMMARY</h1>
-                    </div>
-                </div>
-                
-                
+                <Tab 
+                  stepNo="1"
+                  title="STEP 1"
+                  message="YOUR INFO"
+                />
+                <Tab 
+                  stepNo="2"
+                  title="STEP 2"
+                  message="SELECT PLAN"
+                />
+                <Tab 
+                  stepNo="3"
+                  title="STEP 3"
+                  message="ADD-ONS"
+                />
+                <Tab 
+                  stepNo="4"
+                  title="STEP 4"
+                  message="SUMMARY"
+                />
               </div>
             </div>
             <div className="col-span-12 px-8 py-5 lg:pr-[7rem] lg:col-span-8">
