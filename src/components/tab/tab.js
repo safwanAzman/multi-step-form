@@ -4,11 +4,17 @@ function tab({
     stepNo,
     title,
     message,
+    state
 }) 
 {
     return (
     <div className="flex items-start mb-5 space-x-4">
-        <div className="flex items-center justify-center mb-2 border-none rounded-full h-9 w-9 text-primary-marineBlue bg-primary-lightBlue myFontMedium">
+        <div className={
+            state == 'active' ? 
+            'flex items-center justify-center mb-2 border-none rounded-full h-9 w-9 text-primary-marineBlue bg-primary-lightBlue myFontMedium' 
+            : 
+            'flex items-center justify-center mb-2 text-white border-[1.5px] border-white rounded-full h-9 w-9 bg-trasparent myFontMedium'
+        }>
             {stepNo}
         </div>
         <div>
