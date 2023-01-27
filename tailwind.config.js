@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          marineBlue: "#EEF4FB",
+          marineBlue: "#02295A",
           purplishBlue: "#473DFF",
           pastelBlue: "#ADBEFF",
           lightBlue: "#BFE2FD",
