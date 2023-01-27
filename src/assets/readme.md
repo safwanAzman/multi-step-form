@@ -1,0 +1,1 @@
+folder all assets
