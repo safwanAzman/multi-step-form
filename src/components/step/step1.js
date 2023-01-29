@@ -3,16 +3,19 @@ import Input from "@/components/input"
 
 function step1({
     nameId,
+    nameValue,
     nameName,
     nameOnChange,
     nameErrorMessage,
 
     emailId,
+    emailValue,
     emailName,
     emailOnChange,
     emailErrorMessage,
 
     phoneId,
+    phoneValue,
     phoneName,
     phoneOnChange,
     phoneErrorMessage,
@@ -28,6 +31,7 @@ function step1({
                 label="Name"
                 placeholder="e.g. Safwan Azman"
                 id={nameId}
+                value={nameValue}
                 name={nameName}
                 onChange={nameOnChange}
                 errorMessage={nameErrorMessage}
@@ -36,6 +40,7 @@ function step1({
                 label="Email Address"
                 placeholder="e.g. SafwanAzman@gmail.com"
                 id={emailId}
+                value={emailValue}
                 name={emailName}
                 onChange={emailOnChange}
                 errorMessage={emailErrorMessage}
@@ -44,6 +49,7 @@ function step1({
                 label="Phone Number"
                 placeholder="e.g. +1 234 567 890"
                 id={phoneId}
+                value={phoneValue}
                 name={phoneName}
                 onChange={phoneOnChange}
                 errorMessage={phoneErrorMessage}
