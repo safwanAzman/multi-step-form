@@ -1,25 +1,9 @@
 import React from 'react'
 import Input from "@/components/input"
+import { useFormikContext } from 'formik';
 
-function step1({
-    nameId,
-    nameValue,
-    nameName,
-    nameOnChange,
-    nameErrorMessage,
-
-    emailId,
-    emailValue,
-    emailName,
-    emailOnChange,
-    emailErrorMessage,
-
-    phoneId,
-    phoneValue,
-    phoneName,
-    phoneOnChange,
-    phoneErrorMessage,
-}) {
+export default function Step1() {
+    const { handleChange,values,errors,touched, } = useFormikContext();
     return (
         <>
         <div className="pt-10 pb-8">
@@ -29,34 +13,32 @@ function step1({
         <div>
             <Input
                 label="Name"
+                id='name'
+                name='name'
                 placeholder="e.g. Safwan Azman"
-                id={nameId}
-                value={nameValue}
-                name={nameName}
-                onChange={nameOnChange}
-                errorMessage={nameErrorMessage}
+                value={values.name}
+                onChange={handleChange("name")}
+                errorMessage={errors.name && touched.name ? errors.name : null}
             />
             <Input
                 label="Email Address"
                 placeholder="e.g. SafwanAzman@gmail.com"
-                id={emailId}
-                value={emailValue}
-                name={emailName}
-                onChange={emailOnChange}
-                errorMessage={emailErrorMessage}
+                id="email"
+                name='email'
+                value={values.email}
+                onChange={handleChange("email")}
+                errorMessage={errors.email && touched.email ? errors.email : null}
             />
             <Input
                 label="Phone Number"
                 placeholder="e.g. +1 234 567 890"
-                id={phoneId}
-                value={phoneValue}
-                name={phoneName}
-                onChange={phoneOnChange}
-                errorMessage={phoneErrorMessage}
+                id="phone"
+                name="phone"
+                value={values.phone}
+                onChange={handleChange("phone")}
+                errorMessage={errors.phone && touched.phone ? errors.phone : null}
             />
         </div>
         </>
     )
 }
-
-export default step1
