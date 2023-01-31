@@ -1,6 +1,6 @@
 import React from 'react'
 
-function button({
+export default function button({
     stateStep,
     stateHandleSubmit,
     stateHandlePrevStep
@@ -37,5 +37,3 @@ function button({
         </>
     )
 }
-
-export default button

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function tab({
+export default function tab({
     stepNo,
     title,
     message,
@@ -30,5 +30,3 @@ function tab({
     </div>
     )
 }
-
-export default tab

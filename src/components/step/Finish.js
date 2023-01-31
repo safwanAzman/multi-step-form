@@ -5,7 +5,7 @@ import lottie from 'lottie-web';
 import loading from '@/components/loading.json'
 import congrat from '@/components/congrat.json'
 
-export default function StepFinal() {
+export default function Finish() {
     const [showThanks, setShowThanks] = useState(false);
     useEffect(() => {
         setTimeout(() => {

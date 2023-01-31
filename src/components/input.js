@@ -1,6 +1,6 @@
 import React from 'react'
 
-function input({
+export default function input({
         label,
         errorMessage = null,
         onChange,
@@ -38,5 +38,3 @@ function input({
         </div>
     )
 }
-
-export default input
