@@ -12,7 +12,7 @@ import Step3 from '@/components/step/step3'
 import Step4 from '@/components/step/step4'
 import StepFinal from '@/components/step/Finish'
 import Tab from '@/components/tab/tab'
-import ButtonSubmit from '@/components/button/button'
+import SumbitBtn from '@/components/button/sumbitBtn'
 import {stepNavbar} from '@/data/stepNavbar'
 import {schema} from '@/schema'
 
@@ -122,7 +122,7 @@ export default function Home() {
               : null}
 
               <div>
-                <ButtonSubmit
+                <SumbitBtn
                   stateStep={nextStep}
                   stateHandlePrevStep={handlePrevStep}
                   stateHandleSubmit={handleSubmit}
