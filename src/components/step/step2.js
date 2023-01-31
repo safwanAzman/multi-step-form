@@ -11,6 +11,7 @@ export default function Step2() {
     const handleClick = useCallback((plan, index) => {
         localStorage.setItem('selectedTab', plan.tab);
         setFieldValue('plan', plan.name);
+        setFieldValue('check_plan', optionPrice);
         setFieldValue('price', optionPrice ? plan.priceYr : plan.priceMo);
         setTab(index + 1);
     }, [optionPrice,setFieldValue]);
@@ -46,7 +47,7 @@ export default function Step2() {
                     <Image src={plan.icon} alt={`Picture of ${plan.name} plan`} />
                     <div className="pt-0 text-left md:pt-14">
                         <h1 className="text-lg myFontMedium text-primary-marineBlue">{plan.name}</h1>
-                        <h1 className="text-sm myFontRegular text-neutral-coolGray">{optionPrice ? plan.priceYr : plan.priceMo}</h1>
+                        <h1 className="text-sm myFontRegular text-neutral-coolGray">{optionPrice ? '+$'+plan.priceYr+'/yr' : '+$'+plan.priceMo+'/mo'}</h1>
                         <h1 className="pt-1 text-xs myFontBold text-primary-marineBlue">{optionPrice ? '2 months free ' : ''}</h1>
                     </div>
                 </button>
