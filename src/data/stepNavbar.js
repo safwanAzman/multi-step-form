@@ -1,4 +1,4 @@
-export const step = [
+export const stepNavbar = [
     {
         id : 1,
         stepNo: '1',

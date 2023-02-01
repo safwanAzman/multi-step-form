@@ -1,36 +1,46 @@
-import React , {useState} from 'react'
+import React , {useState,useEffect} from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-const inter = Inter({ subsets: ['latin'] })
 import { Formik } from 'formik';
+import { scrollToTop } from '@/hooks/scrollTop'
 
 
-import desktopBgSidebar from '../assets/img/bg-sidebar-desktop.svg'
-import mobileBgSidebar from '../assets/img/bg-sidebar-mobile.svg'
-import Step1 from '@/components/step/step1'
+import desktopBgSidebar from '@/assets/img/bg-sidebar-desktop.svg'
+import mobileBgSidebar from '@/assets/img/bg-sidebar-mobile.svg'
+import Step1 from '@/components/step/Step1'
+import Step2 from '@/components/step/Step2'
+import Step3 from '@/components/step/Step3'
+import Step4 from '@/components/step/Step4'
+import StepFinal from '@/components/step/StepFinal'
 import Tab from '@/components/tab/tab'
-import {step} from '@/components/sidebar'
-import {Schema} from '@/components/schema'
+import ButtonSubmit from '@/components/button/Button'
+import {stepNavbar} from '@/data/stepNavbar'
+import {schema} from '@/schema'
 
 export default function Home() {
   const [nextStep, setNextStep] = useState(0);
 
   const handleNextStep = async (data,actions) => {
     try{
+      scrollToTop()
       setNextStep(prevStep => prevStep + 1);
     } catch (e) {
         alert('error')
     }
   };
-
+  
   const handlePrevStep = async () => {
     try{
+      scrollToTop()
       setNextStep(prevStep => prevStep - 1);
     } catch (e) {
         alert('error')
     }
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+  
   return (
     <>
       <Head>
@@ -41,8 +51,10 @@ export default function Home() {
       </Head>
     
       <div className="block lg:hidden">
-        <div className="bg-no-repeat bg-cover h-[20rem] flex items-center justify-center" style={{ backgroundImage: `url(${mobileBgSidebar.src})` }}>
-            {step.map((step,index) => (
+        <div className="bg-no-repeat bg-cover h-[15rem] flex items-center justify-center " 
+          style={{ backgroundImage: `url(${mobileBgSidebar.src})` }}
+        >
+            {stepNavbar.map((step,index) => (
               <div key={step.id}>
                 <Tab
                   stepNo={step.stepNo}
@@ -52,13 +64,15 @@ export default function Home() {
             ))}
         </div>
       </div>
-      <main className="flex flex-col items-center justify-start h-screen pt-32 lg:justify-center lg:pt-0 bg-neutral-magnolia ">
-        
-        <div className="absolute mx-4 bg-white rounded-lg shadow-lg top-52 lg:relative lg:top-0 ">
+
+      <div className="flex flex-col items-center justify-start h-screen pt-32 lg:justify-center lg:pb-0 lg:pt-0 bg-neutral-magnolia">
+        <div className="absolute pb-8 mx-4 bg-white rounded-lg shadow-lg top-[10rem] lg:w-[65rem] lg:relative lg:top-0 lg:pb-0 h-[650px] md:h-[610px]">
           <div className="grid grid-cols-12 gap-8 lg:gap-6 md:gap-12">
-            <div className="hidden col-span-12 lg:col-span-4 w-[21rem] bg-no-repeat bg-center h-[38rem] lg:block relative" style={{ backgroundImage: `url(${desktopBgSidebar.src})` }}>
+            <div className="hidden col-span-12 lg:col-span-4  bg-no-repeat bg-center h-[38rem] lg:block relative" 
+              style={{ backgroundImage: `url(${desktopBgSidebar.src})` }}
+            >
               <div className="absolute top-[4rem] left-[4rem]">
-                {step.map((step,index) => (
+                {stepNavbar.map((step,index) => (
                   <div key={step.id} >
                     <Tab 
                       stepNo={step.stepNo}
@@ -71,81 +85,63 @@ export default function Home() {
               </div>
             </div>
             <div className="col-span-12 px-8 py-5 lg:pr-[7rem] lg:col-span-8">
-
-            <Formik
-              validationSchema={Schema}
-              initialValues={{ 
-                  name:'',
-                  email:'',
-                  phone:''
-              }}
-              onSubmit={(values,actions)=>{
-                handleNextStep(values,actions)
-              }}
+              <Formik
+                validationSchema={schema}
+                initialValues={{ 
+                    name:'',
+                    email:'',
+                    phone:'',
+                    plan:'',
+                    price:'',
+                    check_plan:'',
+                    add_on: [],
+                    price_add_on:[],
+                }}
+                onSubmit={(values,actions)=>{
+                  handleNextStep(values,actions);
+                }}
             >
-            {({ handleChange,handleSubmit,values,errors,touched}) => (
-            <>
-                            
+            {({ handleSubmit}) => (
+            <>              
               {nextStep == 0 ?
-                <Step1
-                  nameId="name"
-                  nameName="name"
-                  nameValue={values.name}
-                  nameOnChange={handleChange("name")}
-                  nameErrorMessage={errors.name && touched.name ? errors.name : null}
-              
-                  emailId="email"
-                  emailName="email"
-                  emailValue={values.email}
-                  emailOnChange={handleChange("email")}
-                  emailErrorMessage={errors.email && touched.email ? errors.email : null}
-              
-                  phoneId="phone"
-                  phoneName="phone"
-                  phoneValue={values.phone}
-                  phoneOnChange={handleChange("phone")}
-                  phoneErrorMessage={errors.phone && touched.phone ? errors.phone : null}
-                />
-                : null}
-
+                <Step1/>
+              : null}
               {nextStep == 1 ?
-                <div>Step2</div>
+                <Step2/>
               : null}
-
-
               {nextStep == 2 ?
-                  <div>Step3</div>
+                <Step3/>
               : null}
-
               {nextStep == 3 ?
-                  <div>Step4</div>
+                  <Step4 
+                    onClcik={() => setNextStep(prevStep => prevStep - 2)}
+                  />
               : null}
-
               {nextStep == 4 ?
-                  <div>Step5</div>
+                  <StepFinal/>
               : null}
 
-
-              {nextStep != 4 ?
-                <div className={nextStep > 0 ? 'flex justify-between mt-16' : 'flex justify-end mt-16'}>
-                  {nextStep > 0 ?
-                    <button type="button" onClick={handlePrevStep} className="px-4 py-2 text-base rounded-md text-neutral-coolGray myFontBold hover:text-primary-purplishBlue">
-                        Go Back
-                    </button>
-                  : null}
-                  <button type="submit" onClick={handleSubmit} className="w-32 h-12 px-4 py-2 text-base text-white rounded-md myFontRegular bg-primary-marineBlue hover:bg-primary-purplishBlue">
-                      Next Step
-                  </button>
-                </div>
-              : null}
+              <div>
+                <ButtonSubmit
+                  stateStep={nextStep}
+                  stateHandlePrevStep={handlePrevStep}
+                  stateHandleSubmit={handleSubmit}
+                />
+              </div>
               </>
               )}
               </Formik>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     
+      <footer className="fixed top-0 w-full p-2 bg-black ">
+          <div className="flex items-center justify-center text-xs text-white">
+            Challenge by <a className="px-1 text-teal-500 border-b-2 border-teal-500" href="https://www.frontendmentor.io/">Frontend Mentor.</a>
+            Coded by <a className="pl-1 text-teal-500 border-b-2 border-teal-500" href="https://portfolio-v2-self.vercel.app/"> SafwanAzman.</a>
+          </div>
+      </footer>
     </>
   )
 }
