@@ -41,7 +41,7 @@ export default function Step2() {
                 key={plan.name}
                 onClick={() => handleClick(plan, index)}
                 type="button"
-                className={`flex border-[1.4px] flex-row items-center p-4 space-x-4 hover:border-primary-purplishBlue hover:bg-neutral-magnolia rounded-lg md:flex-col md:items-start md:space-x-0 cursor-pointer
+                className={`flex border-[1.4px] flex-row items-center p-4 space-x-4 hover:border-primary-purplishBlue rounded-lg md:flex-col md:items-start md:space-x-0 cursor-pointer
                     ${tab != index + 1 ? ' border-neutral-lightGray' : 'border-primary-purplishBlue bg-neutral-magnolia' }`}
                 >
                     <Image src={plan.icon} alt={`Picture of ${plan.name} plan`} />
@@ -55,7 +55,7 @@ export default function Step2() {
         </div>
         <div className="flex items-center justify-center p-4 mt-6 bg-neutral-alabaster">
             <div className="flex items-center space-x-3">
-                <h1 className="text-sm myFontMedium text-neutral-coolGray">Monthly</h1>
+                <h1 className={`text-sm myFontMedium  ${optionPrice == false ? 'text-primary-marineBlue' : 'text-neutral-coolGray' }`}>Monthly</h1>
                 <label htmlFor="AcceptConditions" className="relative cursor-pointer h-7 w-14">
                     <input type="checkbox" id="AcceptConditions" className="sr-only peer" 
                         checked={optionPrice ? true : false}
@@ -67,7 +67,7 @@ export default function Step2() {
                     <span className="absolute inset-0 transition rounded-full bg-neutral-lightGray peer-checked:bg-primary-marineBlue"></span>
                     <span className="absolute inset-0 m-1 h-5 w-5 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:w-2 peer-checked:translate-x-8 peer-checked:bg-white peer-checked:ring-transparent"> </span>
                 </label>
-                <h1 className="text-sm myFontMedium text-neutral-coolGray">Yearly</h1>
+                <h1 className={`text-sm myFontMedium  ${optionPrice == true ? 'text-primary-marineBlue' : 'text-neutral-coolGray' }`}>Yearly</h1>
             </div>
         </div>
         </>
