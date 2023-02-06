@@ -24,8 +24,8 @@ export default function tab({
         </div>
         
         <div>
-            <h1 className="text-xs text-neutral-lightGray myFontMedium">{title}</h1>
-            <h1 className="text-sm text-white myFontMedium">{message}</h1>
+            <h3 className="text-xs text-neutral-lightGray myFontMedium">{title}</h3>
+            <h4 className="text-sm text-white myFontMedium">{message}</h4>
         </div>
     </div>
     )

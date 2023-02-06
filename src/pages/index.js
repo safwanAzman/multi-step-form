@@ -50,7 +50,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
-      <div className="block lg:hidden">
+    <main>
+      <nav className="block lg:hidden">
         <div className="bg-no-repeat bg-cover h-[15rem] flex items-center justify-center " 
           style={{ backgroundImage: `url(${mobileBgSidebar.src})` }}
         >
@@ -63,12 +64,12 @@ export default function Home() {
               </div>
             ))}
         </div>
-      </div>
+      </nav>
 
       <div className="flex flex-col items-center justify-start h-screen pt-32 lg:justify-center lg:pb-0 lg:pt-0 bg-neutral-magnolia">
         <div className="absolute pb-8 mx-4 bg-white rounded-lg shadow-lg top-[10rem] lg:w-[65rem] lg:relative lg:top-0 lg:pb-0 h-[650px] md:h-[610px]">
           <div className="grid grid-cols-12 gap-8 lg:gap-6 md:gap-12">
-            <div className="hidden col-span-12 lg:col-span-4  bg-no-repeat bg-center h-[38rem] lg:block relative" 
+            <nav className="hidden col-span-12 lg:col-span-4  bg-no-repeat bg-center h-[38rem] lg:block relative" 
               style={{ backgroundImage: `url(${desktopBgSidebar.src})` }}
             >
               <div className="absolute top-[4rem] left-[4rem]">
@@ -83,7 +84,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+            </nav>
             <div className="col-span-12 px-8 py-5 lg:pr-[7rem] lg:col-span-8">
               <Formik
                 validationSchema={schema}
@@ -142,6 +143,7 @@ export default function Home() {
             Coded by <a className="pl-1 text-teal-500 border-b-2 border-teal-500" href="https://portfolio-v2-self.vercel.app/"> SafwanAzman.</a>
           </div>
       </footer>
+    </main>
     </>
   )
 }
