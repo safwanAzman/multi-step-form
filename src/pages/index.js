@@ -59,6 +59,8 @@ export default function Home() {
               <div key={step.id}>
                 <Tab
                   stepNo={step.stepNo}
+                  title=""
+                  message=""
                   state={index === nextStep ? "active" : ""}
                 />
               </div>
